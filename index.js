@@ -6,6 +6,8 @@ const input = document.querySelector(".input");
 const result = document.querySelector(".result");
 const loader = document.getElementById("loading");
 
+// POBIERANIE DANYCH
+
 async function getRates() {
   displayLoading();
   try {
@@ -30,6 +32,8 @@ async function getRates() {
     console.log(error);
   }
 }
+
+// PRZELICZANIE DANYCH
 
 function calculateResult() {
   const selectedCode = select.value;
