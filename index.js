@@ -1,5 +1,5 @@
 const rates = {};
-const ratesUrl = "http://api.nbp.pl/api/exchangerates/tables/c/";
+const ratesUrl = "https://api.nbp.pl/api/exchangerates/tables/c/";
 const select = document.querySelector(".select");
 const btn = document.getElementById("btn");
 const input = document.querySelector(".input");
