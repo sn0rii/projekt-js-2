@@ -1,0 +1,68 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  margin: 10px auto;
+  gap: 5px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto 10px;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  border: 1px solid white;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.exchange {
+  display: flex;
+}
+
+.result {
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.btn {
+  border-radius: 15%;
+}
+
+#loading {
+  width: 2rem;
+  height: 2rem;
+  border: 5px solid #f3f3f3;
+  border-top: 6px solid #9c41f2;
+  border-radius: 100%;
+  margin: auto;
+  visibility: hidden;
+  animation: spin 1s infinite linear;
+}
+
+#loading.display {
+  visibility: visible;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
