@@ -42,7 +42,7 @@ function calculateResult() {
 
   if (selectedRate && !isNaN(inputValue)) {
     const convertedValue = inputValue * selectedRate.bid;
-    result.textContent = ` To:  ${convertedValue.toFixed(2)} PLN`;
+    result.textContent = ` TO:  ${convertedValue.toFixed(2)} PLN`;
   } else {
     alert("Podaj właściwą wartość.");
   }
