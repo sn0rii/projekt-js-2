@@ -8,9 +8,7 @@ const loader = document.getElementById("loading");
 
 // POBIERANIE DANYCH
 
-async function getRates(e) {
-  e.preventDefault();
-
+async function getRates() {
   displayLoading();
   try {
     const res = await fetch(ratesUrl);
@@ -24,7 +22,6 @@ async function getRates(e) {
       }
     });
     calculateResult();
-    hideLoading();
   } catch (error) {
     alert("Problem z pobieraniem danych spróbuj ponownie!");
     console.log(error);
@@ -35,35 +32,35 @@ async function getRates(e) {
 
 // PRZELICZANIE DANYCH
 
-function calculateResult(event) {
-  if (event) {
-    event.preventDefault();
-  }
-
+function calculateResult() {
   const selectedCode = select.value;
   const selectedRate = rates[selectedCode];
   const inputValue = parseFloat(input.value);
 
-  if (selectedRate && !isNaN(inputValue) && inputValue > 0) {
+  if (selectedRate) {
     const convertedValue = inputValue * selectedRate.bid;
     result.textContent = ` TO:  ${convertedValue.toFixed(2)} PLN`;
   } else {
-    alert("Podaj właściwą wartość.");
+    alert("Coś poszło nie tak.");
   }
 }
 
-// document.getElementById("btn").addEventListener("click", getRates);
-// form.addEventListener("submit", calculateResult);
+// SUBMIT ORAZ SPRAWDZANIE WARTOSCI
 
-form.addEventListener("submit", getRates);
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const value = parseFloat(input.value);
+  if (!isNaN(value) && value > 0) {
+    getRates(e);
+  } else {
+    alert("Podaj właściwą wartość.");
+  }
+});
 
 // LOADER
 
 function displayLoading() {
   loader.classList.add("display");
-  setTimeout(() => {
-    loader.classList.remove("display");
-  }, 5000);
 }
 
 function hideLoading() {
