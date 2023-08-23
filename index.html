@@ -13,14 +13,21 @@
       <div class="logo"></div>
       <h1 class="title">Przelicznik walut</h1>
     </header>
-    <section class="exchange">
+    <main>
       <div class="container">
-        <input type="number" id="input" class="input" />
-        <select class="select"></select>
-        <button class="btn" id="btn" type="button">Przelicz</button>
-        <div class="result">TO :</div>
+        <form class="form">
+          <input type="number" id="input" class="input" />
+          <select class="select">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="CHF">CHF</option>
+          </select>
+
+          <button class="btn" id="btn" type="submit">Przelicz</button>
+          <div class="result">TO :</div>
+        </form>
       </div>
-    </section>
+    </main>
     <div id="loading"></div>
     <script src="index.js"></script>
   </body>
