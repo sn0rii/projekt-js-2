@@ -22,8 +22,8 @@ async function getRates() {
         rates[rate.code] = rate;
       }
     });
-    hideLoading();
     calculateResult();
+    hideLoading();
   } catch (error) {
     alert("Problem z pobieraniem danych spróbuj ponownie!");
     console.log(error);
@@ -35,7 +35,6 @@ async function getRates() {
 // PRZELICZANIE DANYCH
 
 function calculateResult(event) {
-  console.log("a to na tez ?");
   if (event) {
     event.preventDefault();
   }
@@ -43,6 +42,9 @@ function calculateResult(event) {
   const selectedCode = select.value;
   const selectedRate = rates[selectedCode];
   const inputValue = parseFloat(input.value);
+
+  // console.log(selectedRate);
+  // console.log(selectedRate.bid);
 
   if (selectedRate && !isNaN(inputValue) && inputValue > 0) {
     const convertedValue = inputValue * selectedRate.bid;
@@ -54,6 +56,8 @@ function calculateResult(event) {
 
 document.getElementById("btn").addEventListener("click", getRates);
 form.addEventListener("submit", calculateResult);
+
+// form.addEventListener("submit", getRates);
 
 // LOADER
 
