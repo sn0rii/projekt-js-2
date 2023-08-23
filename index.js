@@ -8,8 +8,9 @@ const loader = document.getElementById("loading");
 
 // POBIERANIE DANYCH
 
-async function getRates() {
-  console.log("dziala na click ?");
+async function getRates(e) {
+  e.preventDefault();
+
   displayLoading();
   try {
     const res = await fetch(ratesUrl);
@@ -43,9 +44,6 @@ function calculateResult(event) {
   const selectedRate = rates[selectedCode];
   const inputValue = parseFloat(input.value);
 
-  // console.log(selectedRate);
-  // console.log(selectedRate.bid);
-
   if (selectedRate && !isNaN(inputValue) && inputValue > 0) {
     const convertedValue = inputValue * selectedRate.bid;
     result.textContent = ` TO:  ${convertedValue.toFixed(2)} PLN`;
@@ -54,10 +52,10 @@ function calculateResult(event) {
   }
 }
 
-document.getElementById("btn").addEventListener("click", getRates);
-form.addEventListener("submit", calculateResult);
+// document.getElementById("btn").addEventListener("click", getRates);
+// form.addEventListener("submit", calculateResult);
 
-// form.addEventListener("submit", getRates);
+form.addEventListener("submit", getRates);
 
 // LOADER
 
