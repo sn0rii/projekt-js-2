@@ -17,7 +17,7 @@ async function getRates() {
 
     Object.keys(rateList).forEach((rateKey) => {
       const rate = rateList[rateKey];
-      if (rate.code === "EUR" || rate.code === "USD" || rate.code === "CHF") {
+      if (rate.code === "EUR" || rate.code === "USD" || rate.code === "CHF" || rate.code === "GBP") {
         rates[rate.code] = rate;
       }
     });
